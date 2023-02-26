@@ -1,0 +1,150 @@
+@use "./base";
+@use "./pokemonButton";
+@use "./informationDisplay";
+
+
+*{
+  --suicune-blue: #83CDD1;
+  --suicune-purple: #D2A1DE;
+  --suicune-white: #EAF1F3;
+  --suicune-purple-secondary: #9f6eab;
+
+}
+
+body{
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	background-color: #495252;
+}
+
+.App{
+	width: 75rem;
+	height:75rem;
+
+	
+	background-color: var(--suicune-white);
+	border-radius: 2rem;
+	overflow: hidden;
+
+	position: relative;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	margin-top: 2rem;
+	margin-bottom: 2rem;
+
+	font-size: 30px;
+}
+
+.header{
+
+	background-color: var(--suicune-blue);
+
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	
+	box-sizing: border-box;
+	height: 2rem;
+	width: 100%;
+
+	padding: 5rem;
+	
+}
+
+.search-section{
+	width: 100%;
+	text-align: center;
+}
+
+.pokedex-container{
+
+	position: relative;
+	display: grid;
+	grid-template-columns: repeat(4,0.3fr);
+	grid-template-rows: auto;
+	row-gap: 1rem;
+
+
+	border-radius: 10px;
+	background-color: var(--suicune-purple);
+	overflow-y: scroll;
+
+
+
+
+	padding-top: 1rem;
+	padding-bottom: 1rem;
+	height: 75rem;
+	width: 60rem;
+	margin: 2rem;
+	
+	&::-webkit-scrollbar {
+	width: 20px;
+  }
+
+  	&::-webkit-scrollbar-track {
+	background-color: #9f6eab;
+	border-radius: 10px;
+  }
+  
+  	&::-webkit-scrollbar-thumb {
+	background: var(--suicune-blue);
+	border-radius: 10px;
+  }
+
+}
+
+
+/*---------------------------------*/
+
+@media only screen and (max-width:375px){
+
+	.App{
+		width: 90vw;
+		height: 90vh;
+	}
+
+	.header{
+		flex-direction: column;
+		flex-direction: column-reverse;
+		justify-content: center;
+		align-items: center;
+		row-gap: 20px;
+		
+		box-sizing: border-box;
+		height: 15rem;
+		width: 100%;
+	
+		padding: 5rem;
+		
+	}
+
+	.pokedex-container{
+
+		display: grid;
+		grid-template-columns: repeat(1,1fr);
+		grid-template-rows: auto;
+		row-gap: 1rem;
+	
+	
+		border-radius: 10px;
+		background-color: var(--suicune-purple);
+		overflow-y: scroll;
+	
+	
+	
+	
+		padding-top: 1rem;
+		padding-bottom: 1rem;
+		height: 45vh;
+		width: 80vw;
+		margin: 2rem;
+
+		&::-webkit-scrollbar {
+			width: 15px;
+			
+		  }
+  }
+}

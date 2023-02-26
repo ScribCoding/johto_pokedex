@@ -1,0 +1,82 @@
+
+#informationDisplay{
+    color: red;
+    
+
+    width: 100%;
+    height: 100%;
+    justify-content: center;
+    align-items: center;
+
+    position: absolute; 
+    
+}
+
+
+.info-hidden{
+    transition: z-index 0s 2s;
+    transition: background-color 0.8s 0s;
+    background-color: rgba(172, 211, 215, 0);
+    z-index: -1;
+
+}
+
+.info-show{
+    transition: z-index 0s 2s;
+    transition: background-color 0.8s 0s;
+    background-color: rgba(172, 211, 215, 0.561);
+    z-index: 2;
+    display: flex;
+
+}
+
+#informationDisplayContainer{
+    width: 50rem;
+    height: 50rem;
+    border-radius: 20px;
+
+    display: grid;
+    grid-template-columns: repeat(2,1fr);
+    grid-template-rows: repeat(2,1fr);
+    grid-template-areas: "image info"
+                         "stats stats";
+
+    background-color: var(--suicune-white);
+
+    .info{
+        grid-area: info;
+        color:var(--suicune-purple);
+
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+        
+
+    }
+
+    .stats{
+        grid-area: stats;
+        justify-self: center;
+
+        width: 45rem;
+        height: 22rem;
+        border-radius: 20px;
+
+        background-color: var(--suicune-blue);
+    }
+}
+
+.infoDisplay-hidden{
+    transition-property: opacity transform;
+    transition-duration: 1s;
+    opacity: 0%;
+    transform: translateY(0px);
+}
+
+.infoDisplay-show{
+    transition-property: opacity transform;
+    transition-duration: 1s;
+    opacity: 100%;
+    transform: translateY(50px);
+
+}

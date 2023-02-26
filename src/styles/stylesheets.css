@@ -1,0 +1,270 @@
+/* CSS RESET */
+/* http://meyerweb.com/eric/tools/css/reset/ 
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
+}
+
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section {
+  display: block;
+}
+
+body {
+  line-height: 1;
+}
+
+ol, ul {
+  list-style: none;
+}
+
+blockquote, q {
+  quotes: none;
+}
+
+blockquote:before, blockquote:after,
+q:before, q:after {
+  content: "";
+  content: none;
+}
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+/*--------------------------------------------------*/
+.pokemon-button {
+  transition-property: display;
+  transition-duration: 2s;
+  min-width: 12rem;
+  max-width: 12rem;
+  min-height: 12rem;
+  max-height: 12rem;
+  justify-self: center;
+  position: relative;
+  border-radius: 10px;
+  border-style: none;
+  background-blend-mode: luminosity;
+  background-color: var(--suicune-blue);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+  top: 0px;
+  transform-style: preserve-3d;
+}
+.pokemon-button:active {
+  transition-property: top;
+  transition-duration: 0.1s;
+  top: 5px;
+}
+.pokemon-button:active::before {
+  transition-property: top;
+  transition-duration: 0.1s;
+  top: 0px;
+}
+
+.pokemon-button::before {
+  background-color: var(--suicune-purple-secondary);
+  content: "";
+  width: 12rem;
+  height: 12rem;
+  border-radius: 10px;
+  position: absolute;
+  display: block;
+  top: 5px;
+  right: 0px;
+  transform: translateZ(-1px);
+}
+
+#informationDisplay {
+  color: red;
+  width: 100%;
+  height: 100%;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+}
+
+.info-hidden {
+  transition: z-index 0s 2s;
+  transition: background-color 0.8s 0s;
+  background-color: rgba(172, 211, 215, 0);
+  z-index: -1;
+}
+
+.info-show {
+  transition: z-index 0s 2s;
+  transition: background-color 0.8s 0s;
+  background-color: rgba(172, 211, 215, 0.561);
+  z-index: 2;
+  display: flex;
+}
+
+#informationDisplayContainer {
+  width: 50rem;
+  height: 50rem;
+  border-radius: 20px;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: repeat(2, 1fr);
+  grid-template-areas: "image info" "stats stats";
+  background-color: var(--suicune-white);
+}
+#informationDisplayContainer .info {
+  grid-area: info;
+  color: var(--suicune-purple);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
+#informationDisplayContainer .stats {
+  grid-area: stats;
+  justify-self: center;
+  width: 45rem;
+  height: 22rem;
+  border-radius: 20px;
+  background-color: var(--suicune-blue);
+}
+
+.infoDisplay-hidden {
+  transition-property: opacity transform;
+  transition-duration: 1s;
+  opacity: 0%;
+  transform: translateY(0px);
+}
+
+.infoDisplay-show {
+  transition-property: opacity transform;
+  transition-duration: 1s;
+  opacity: 100%;
+  transform: translateY(50px);
+}
+
+* {
+  --suicune-blue: #83CDD1;
+  --suicune-purple: #D2A1DE;
+  --suicune-white: #EAF1F3;
+  --suicune-purple-secondary: #9f6eab;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: #495252;
+}
+
+.App {
+  width: 75rem;
+  height: 75rem;
+  background-color: var(--suicune-white);
+  border-radius: 2rem;
+  overflow: hidden;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+  font-size: 30px;
+}
+
+.header {
+  background-color: var(--suicune-blue);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-sizing: border-box;
+  height: 2rem;
+  width: 100%;
+  padding: 5rem;
+}
+
+.search-section {
+  width: 100%;
+  text-align: center;
+}
+
+.pokedex-container {
+  position: relative;
+  display: grid;
+  grid-template-columns: repeat(4, 0.3fr);
+  grid-template-rows: auto;
+  row-gap: 1rem;
+  border-radius: 10px;
+  background-color: var(--suicune-purple);
+  overflow-y: scroll;
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+  height: 75rem;
+  width: 60rem;
+  margin: 2rem;
+}
+.pokedex-container::-webkit-scrollbar {
+  width: 20px;
+}
+.pokedex-container::-webkit-scrollbar-track {
+  background-color: #9f6eab;
+  border-radius: 10px;
+}
+.pokedex-container::-webkit-scrollbar-thumb {
+  background: var(--suicune-blue);
+  border-radius: 10px;
+}
+
+/*---------------------------------*/
+@media only screen and (max-width: 375px) {
+  .App {
+    width: 90vw;
+    height: 90vh;
+  }
+  .header {
+    flex-direction: column;
+    flex-direction: column-reverse;
+    justify-content: center;
+    align-items: center;
+    row-gap: 20px;
+    box-sizing: border-box;
+    height: 15rem;
+    width: 100%;
+    padding: 5rem;
+  }
+  .pokedex-container {
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    grid-template-rows: auto;
+    row-gap: 1rem;
+    border-radius: 10px;
+    background-color: var(--suicune-purple);
+    overflow-y: scroll;
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+    height: 45vh;
+    width: 80vw;
+    margin: 2rem;
+  }
+  .pokedex-container::-webkit-scrollbar {
+    width: 15px;
+  }
+}/*# sourceMappingURL=stylesheets.css.map */

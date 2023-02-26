@@ -1,0 +1,55 @@
+
+.pokemon-button{
+	transition-property: display;
+	transition-duration: 2s;
+
+	min-width: 12rem;
+	max-width: 12rem;
+	min-height: 12rem;
+	max-height: 12rem;
+
+	justify-self: center;
+	position: relative;
+
+	border-radius: 10px;
+	border-style: none;
+
+    background-blend-mode:luminosity;
+	background-color: var(--suicune-blue);
+	background-repeat: no-repeat;
+	background-position: center;
+	background-size: contain;
+
+	top:0px;
+	transform-style: preserve-3d;	
+
+    &:active{
+        transition-property: top;
+        transition-duration: 0.1s;
+        top: 5px;
+    }
+
+    &:active::before{
+        transition-property: top;
+        transition-duration: 0.1s;
+        top: 0px;
+    }
+}
+
+.pokemon-button::before{
+	background-color:var(--suicune-purple-secondary);
+	content: "";
+	width: 12rem;
+	height: 12rem;
+	border-radius: 10px;
+	
+	position:absolute;
+	display: block;
+	
+	top: 5px;
+	right: 0px;
+	transform: translateZ(-1px);
+
+}
+
+
