@@ -1,0 +1,12 @@
+.type-container{
+    
+
+    display: flex;
+    flex-direction: row;
+    column-gap: 1rem;
+
+    .type-icon{
+        max-height: 5rem;
+        max-width: 5rem;
+    }
+}

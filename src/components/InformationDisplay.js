@@ -1,9 +1,8 @@
-
+import TypeDisplay from "./TypeDisplay";
 
 const InformationDisplay = ({pickedPokemon}) =>{
     
     let pokemon = pickedPokemon
-
 
    
         
@@ -12,13 +11,13 @@ return(
     
         <div className="infoDisplay-hidden" id="informationDisplayContainer">
         <img/>
-        <div className="info">
-        <p >NAME:{pokemon.name}</p>
-        <p >ID:{pokemon.id} </p>
-        <p >TYPE:{pokemon.types} </p>
+        <div className="info-general">
+        <p >NAME: {pokemon.name}</p>
+        <p >ID: {pokemon.id} </p>
+        <TypeDisplay types={pokemon.types}/>
         </div>
 
-        <div className="stats">
+        <div className="info-stats">
 
 
         </div>

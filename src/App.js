@@ -76,31 +76,25 @@ function App() {
         informationDisplay.classList.add("info-show");
         document.getElementById("informationDisplayContainer").classList.add("infoDisplay-show");
 
-        console.log(pokemonList[event.target.id]);
-
         async function getData(idNumber){
           await P.getResource([`/api/v2/pokemon/${idNumber}`])
             .then((response) => {
-              console.log(response[0])
-              console.log(response[0].name)
-              console.log(response[0].types)
-              console.log(response[0].stats)
-
+              
               function getTypes(){
                 let typeArray = [];
                 response[0].types.forEach(element => {
                   typeArray.push(element.type.name);
                 });
                 return typeArray;
-              }
+              }//gets pokemon type
 
               function getName(){
                 return response[0].name
-              }
+              }//gets pokemon name
 
               function getID(){
                 return response[0].id
-              }
+              }//gets pokemon id
 
               setPickedPokemon({
                 name: getName(),
@@ -109,24 +103,18 @@ function App() {
               })
             });
         }
-
-
         getData(i+152);
       })
 
-      //when display is not clicked
+     
       document.getElementById("informationDisplay").addEventListener("click",(event)=>{
         //if the clicked target is the info container inside, do not remove it
         if(document.getElementById("informationDisplayContainer").contains(event.target)){
           //clicked inside!
         }else{
           document.getElementById("informationDisplay").classList.remove("info-show");
-          document.getElementById("informationDisplayContainer").classList.remove("infoDisplay-show");
-          
-
-          
-          
-          setPickedPokemon({});
+          document.getElementById("informationDisplayContainer").classList.remove("infoDisplay-show");//removes information display
+          setPickedPokemon({});//resets picked pokemon to nothing
         }
       }
     )}

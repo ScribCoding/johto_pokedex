@@ -43,18 +43,19 @@
 
     background-color: var(--suicune-white);
 
-    .info{
+    .info-general{
         grid-area: info;
         color:var(--suicune-purple);
+
 
         display: flex;
         flex-direction: column;
         justify-content: space-around;
         
-
+        padding: 5rem;
     }
 
-    .stats{
+    .info-stats{
         grid-area: stats;
         justify-self: center;
 
