@@ -1,3 +1,4 @@
+@import url("https://fonts.googleapis.com/css2?family=M+PLUS+Rounded+1c:wght@100;300;400;500;700;800;900&display=swap");
 /* CSS RESET */
 /* http://meyerweb.com/eric/tools/css/reset/ 
    v2.0 | 20110126
@@ -98,7 +99,7 @@ table {
 }
 
 #informationDisplay {
-  color: red;
+  font-weight: 500;
   width: 100%;
   height: 100%;
   justify-content: center;
@@ -128,8 +129,18 @@ table {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   grid-template-rows: repeat(2, 1fr);
-  grid-template-areas: "image info" "stats stats";
+  grid-template-areas: "sprite info" "stats stats";
   background-color: var(--suicune-white);
+}
+#informationDisplayContainer .info-image {
+  grid-area: sprite;
+  width: 100%;
+  height: 100%;
+  padding: 2vw;
+}
+#informationDisplayContainer .info-image .frontSprite {
+  width: 100%;
+  height: 100%;
 }
 #informationDisplayContainer .info-general {
   grid-area: info;
@@ -137,15 +148,27 @@ table {
   display: flex;
   flex-direction: column;
   justify-content: space-around;
-  padding: 5rem;
+  padding: 2vw;
 }
 #informationDisplayContainer .info-stats {
   grid-area: stats;
   justify-self: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: flex-start;
   width: 45rem;
   height: 22rem;
   border-radius: 20px;
-  background-color: var(--suicune-blue);
+  overflow: hidden;
+  background-color: var(--suicune-purple);
+}
+#informationDisplayContainer .info-stats .stat-bar {
+  transition-property: width;
+  transition-duration: 1.5s;
+  background-color: red;
+  width: 0px;
+  height: 20px;
 }
 
 .infoDisplay-hidden {
@@ -159,7 +182,7 @@ table {
   transition-property: opacity transform;
   transition-duration: 1s;
   opacity: 100%;
-  transform: translateY(50px);
+  transform: translateY(7vh);
 }
 
 .type-container {
@@ -178,6 +201,8 @@ table {
   --suicune-purple: #D2A1DE;
   --suicune-white: #EAF1F3;
   --suicune-purple-secondary: #9f6eab;
+  font-family: "M PLUS Rounded 1c", sans-serif;
+  box-sizing: border-box;
 }
 
 body {
@@ -185,11 +210,12 @@ body {
   flex-direction: column;
   align-items: center;
   background-color: #495252;
+  font-family: "M PLUS Rounded 1c", sans-serif;
 }
 
 .App {
-  width: 75rem;
-  height: 75rem;
+  width: 70vw;
+  height: 90vh;
   background-color: var(--suicune-white);
   border-radius: 2rem;
   overflow: hidden;

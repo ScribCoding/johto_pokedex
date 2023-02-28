@@ -96,10 +96,24 @@ function App() {
                 return response[0].id
               }//gets pokemon id
 
+              function getStats(){
+                console.log(response[0].stats)
+                return response[0].stats
+              }//gets pokemon stats
+
+              function getFrontSprite(){
+                
+                return response[0].sprites.front_default
+              }//gets front view of pokemon sprite
+
+              
+              
               setPickedPokemon({
                 name: getName(),
                 id: getID(),
                 types: getTypes(),
+                stats: getStats(),
+                frontURL: getFrontSprite()
               })
             });
         }

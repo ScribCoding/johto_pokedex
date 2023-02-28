@@ -3,12 +3,16 @@
 @use "./informationDisplay";
 @use "./typeDisplay";
 
+@import url('https://fonts.googleapis.com/css2?family=M+PLUS+Rounded+1c:wght@100;300;400;500;700;800;900&display=swap');
+
 *{
   --suicune-blue: #83CDD1;
   --suicune-purple: #D2A1DE;
   --suicune-white: #EAF1F3;
   --suicune-purple-secondary: #9f6eab;
 
+  font-family: 'M PLUS Rounded 1c', sans-serif;
+  box-sizing: border-box;
 }
 
 body{
@@ -16,11 +20,12 @@ body{
 	flex-direction: column;
 	align-items: center;
 	background-color: #495252;
+	font-family: 'M PLUS Rounded 1c', sans-serif;
 }
 
 .App{
-	width: 75rem;
-	height:75rem;
+	width: 70vw;
+	height:90vh;
 
 	
 	background-color: var(--suicune-white);

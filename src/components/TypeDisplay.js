@@ -87,7 +87,7 @@ const TypeDisplay = ({types}) =>{
                 </svg>
                 
             )
-        }else if(type=='fight'){
+        }else if(type=='fighting'){
             return(
                 <svg key={key} className="type-icon" viewBox="0 0 211 211" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <rect width="211" height="211" rx="105.5" fill="#FF6363"/>
