@@ -4,7 +4,7 @@ const StatBar = ({type, statValue}) =>{
 const [value, setValue] = useState(0);
 
   setTimeout(() => {
-    setValue(statValue/3)
+    setValue(statValue/4)
   }, 100);
 
 

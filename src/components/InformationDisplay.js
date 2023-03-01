@@ -27,15 +27,19 @@ return(
     <div className="info-hidden" id="informationDisplay"> 
     
         <div className="infoDisplay-hidden" id="informationDisplayContainer">
-            
+
+            <div id="loading" className="hidden-loading">
+                
+            </div>
+
             <div className="info-image">
-                <img className="frontSprite" src={frontSpriteURL} alt="pokemon sprite"/>
+                <img className="frontSprite" src={frontSpriteURL}/>
             </div>
             
 
             <div className="info-general">
                 <p >{name}</p>
-                <p >#{id} </p>
+                <p >{id} </p>
                 <TypeDisplay types={types}/>
             </div>
 

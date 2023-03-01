@@ -132,6 +132,30 @@ table {
   grid-template-areas: "sprite info" "stats stats";
   background-color: var(--suicune-white);
 }
+@keyframes spin {
+  0% {
+    transform: rotate(0);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+#informationDisplayContainer #loading {
+  animation: spin 2s infinite;
+  position: absolute;
+  width: 5rem;
+  height: 5rem;
+  justify-self: center;
+  align-self: center;
+  z-index: 10;
+  background-image: url("../UI_elements/pokeball.svg");
+  background-repeat: no-repeat;
+  background-size: 100%;
+  background-position: center;
+}
+#informationDisplayContainer .hidden-loading {
+  display: none;
+}
 #informationDisplayContainer .info-image {
   grid-area: sprite;
   width: 100%;

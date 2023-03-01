@@ -76,6 +76,10 @@ function App() {
         informationDisplay.classList.add("info-show");
         document.getElementById("informationDisplayContainer").classList.add("infoDisplay-show");
 
+        function hideLoading(){
+          document.getElementById("loading").classList.add("hidden-loading")
+        }
+
         async function getData(idNumber){
           await P.getResource([`/api/v2/pokemon/${idNumber}`])
             .then((response) => {
@@ -102,12 +106,12 @@ function App() {
               }//gets pokemon stats
 
               function getFrontSprite(){
-                
                 return response[0].sprites.front_default
               }//gets front view of pokemon sprite
 
+             
               
-              
+              hideLoading()
               setPickedPokemon({
                 name: getName(),
                 id: getID(),
@@ -128,6 +132,7 @@ function App() {
         }else{
           document.getElementById("informationDisplay").classList.remove("info-show");
           document.getElementById("informationDisplayContainer").classList.remove("infoDisplay-show");//removes information display
+          document.getElementById("loading").classList.remove("hidden-loading");//turns the loader on
           setPickedPokemon({});//resets picked pokemon to nothing
         }
       }
