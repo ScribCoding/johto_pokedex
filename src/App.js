@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useState, useLayoutEffect } from 'react';
 import './styles/stylesheets.css';
 import Buttons from './components/Buttons'
 import Filter from './components/Filter'
@@ -27,25 +27,11 @@ function App() {
       offset:151,
       limit: 100
     }
-
-
     await P.getPokemonsList(interval)
     .then(response =>{
       const pokeList = response;
-      console.log("this is the list",pokeList);
       setPokemonList(pokeList.results) //sets entire pokemon list as an array
     })
-    .then(
-      setTimeout(() => {
-        
-        let pokemon_buttons = document.getElementsByClassName("pokemon-button");
-
-        for (let i = 0; i<pokemon_buttons.length; i++){
-          pokemon_buttons[i].id=i; //sets the id of the button to the index of the pokemon in the pokemon buttons list
-          pokemon_buttons[i].style.backgroundImage = `url('https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/dream-world/${152+i}.svg')`;
-        }
-  }, 100)
-    )
   }
 
   useEffect(()=>{
@@ -101,7 +87,6 @@ function App() {
               }//gets pokemon id
 
               function getStats(){
-                console.log(response[0].stats)
                 return response[0].stats
               }//gets pokemon stats
 
@@ -148,6 +133,20 @@ function App() {
     setSearch(event.target.value);
   }
   
+ const setBackgroundImages = () =>{
+
+  let pokemon_buttons = document.getElementsByClassName("pokemon-button");
+
+    for (let i = 0; i<pokemon_buttons.length; i++){
+    pokemon_buttons[i].id=i; //sets the id of the button to the index of the pokemon in the pokemon buttons list
+    pokemon_buttons[i].style.backgroundImage = `url('https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/dream-world/${152+i}.svg')`;
+  }
+
+ }
+
+ setTimeout(() => {
+  setBackgroundImages();
+ }, 10);
 
  
 

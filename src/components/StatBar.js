@@ -3,14 +3,17 @@ const StatBar = ({type, statValue}) =>{
 
 const [value, setValue] = useState(0);
 
+const infoStats = document.getElementById("info-stats")
+let infoStatsWidth = infoStats.offsetWidth
+
   setTimeout(() => {
-    setValue(statValue/4)
+    setValue(statValue/infoStatsWidth*200)
   }, 100);
 
 
-
 return(
-  <div className={`stat-bar ${type}`} id={type} style={{width: `${value}vh`}}>
+  <div className={`stat-bar ${type}`} id={type} style={{width: `${value}%`}}>
+    <p className='stat-bar-value'>{statValue}</p>
   </div>
   
 )

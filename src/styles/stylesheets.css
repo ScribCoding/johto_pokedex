@@ -125,11 +125,12 @@ table {
 #informationDisplayContainer {
   width: 50rem;
   height: 50rem;
+  padding: 1rem;
   border-radius: 20px;
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   grid-template-rows: repeat(2, 1fr);
-  grid-template-areas: "sprite info" "stats stats";
+  grid-template-areas: "sprite info" "description stats";
   background-color: var(--suicune-white);
 }
 @keyframes spin {
@@ -181,8 +182,8 @@ table {
   flex-direction: column;
   justify-content: space-around;
   align-items: flex-start;
-  width: 45rem;
-  height: 22rem;
+  width: 100%;
+  height: 100%;
   border-radius: 20px;
   overflow: hidden;
   background-color: var(--suicune-purple);
@@ -190,9 +191,19 @@ table {
 #informationDisplayContainer .info-stats .stat-bar {
   transition-property: width;
   transition-duration: 1.5s;
-  background-color: red;
+  background-color: var(--suicune-purple-secondary);
   width: 0px;
-  height: 20px;
+  height: 2rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+#informationDisplayContainer .info-stats .stat-bar .stat-bar-value {
+  font-size: 80%;
+  font-weight: 700;
+}
+#informationDisplayContainer .info-description {
+  grid-area: description;
 }
 
 .infoDisplay-hidden {

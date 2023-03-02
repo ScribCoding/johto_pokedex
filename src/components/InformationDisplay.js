@@ -17,10 +17,9 @@ const InformationDisplay = ({pickedPokemon}) =>{
                     }   
                     )
                 )
-            }
-            
+            }         
         }
-        
+
 
         
 return(
@@ -28,25 +27,24 @@ return(
     
         <div className="infoDisplay-hidden" id="informationDisplayContainer">
 
-            <div id="loading" className="hidden-loading">
-                
+            <div id="loading" className="hidden-loading"> 
             </div>
 
             <div className="info-image">
                 <img className="frontSprite" src={frontSpriteURL}/>
             </div>
-            
-
             <div className="info-general">
                 <p >{name}</p>
                 <p >{id} </p>
                 <TypeDisplay types={types}/>
             </div>
-
-            <div className="info-stats">
+            <div className="info-stats" id="info-stats">
                 {displayStat()}
+            </div>
+            <div className="info-description">
 
             </div>
+
         </div>
 
     </div>
