@@ -9,17 +9,33 @@ const InformationDisplay = ({pickedPokemon}) =>{
         let stats = pickedPokemon.stats
         let frontSpriteURL = pickedPokemon.frontURL;
         
-        function displayStat(){
-            if(stats!= undefined){
-                return(
-                    stats.map((currentStat,index)=>{
-                        return <StatBar key = {index} type={currentStat.stat.name} statValue={currentStat.base_stat}/>
-                    }   
+        function displayStat(type){
+            if(type =="bar"){
+                if(stats!= undefined){
+                    return(
+                        stats.map((currentStat,index)=>{
+                            return <StatBar key = {index} type={currentStat.stat.name} statValue={currentStat.base_stat}/>
+                        }   
+                        )
                     )
-                )
-            }         
+                }         
+            }
+
+            if(type =="label"){
+                if(stats!= undefined){
+                    return(
+                        stats.map((currentStat,index)=>{
+                            return <p key = {index} className="info-stats-label">{currentStat.stat.name}</p>
+                        }   
+                        )
+                    )
+                }
+       
+            }
+            
         }
 
+        
 
         
 return(
@@ -39,11 +55,15 @@ return(
                 <TypeDisplay types={types}/>
             </div>
             <div className="info-stats" id="info-stats">
-                {displayStat()}
+                <div className="info-stats-labels">
+                    {displayStat("label")}
+                </div>
+                <div className="info-stats-bars">
+                {displayStat("bar")}
+                </div>
+                
             </div>
-            <div className="info-description">
 
-            </div>
 
         </div>
 

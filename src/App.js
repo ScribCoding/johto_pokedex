@@ -69,6 +69,8 @@ function App() {
         async function getData(idNumber){
           await P.getResource([`/api/v2/pokemon/${idNumber}`])
             .then((response) => {
+
+              
               
               function getTypes(){
                 let typeArray = [];

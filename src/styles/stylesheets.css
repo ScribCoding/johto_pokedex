@@ -130,7 +130,7 @@ table {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   grid-template-rows: repeat(2, 1fr);
-  grid-template-areas: "sprite info" "description stats";
+  grid-template-areas: "sprite info" "stats stats";
   background-color: var(--suicune-white);
 }
 @keyframes spin {
@@ -162,10 +162,18 @@ table {
   width: 100%;
   height: 100%;
   padding: 2vw;
+  background-color: var(--suicune-purple);
+  border-radius: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 #informationDisplayContainer .info-image .frontSprite {
   width: 100%;
   height: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+  overflow: visible;
 }
 #informationDisplayContainer .info-general {
   grid-area: info;
@@ -176,9 +184,19 @@ table {
   padding: 2vw;
 }
 #informationDisplayContainer .info-stats {
+  display: flex;
+  min-width: 100%;
+  grid-area: stats;
+  -moz-column-gap: 20px;
+       column-gap: 20px;
+  padding: 1vw;
+}
+#informationDisplayContainer .info-stats .info-stats-bars {
   grid-area: stats;
   justify-self: center;
   display: flex;
+  flex-basis: 0;
+  flex-grow: 1.5;
   flex-direction: column;
   justify-content: space-around;
   align-items: flex-start;
@@ -188,7 +206,7 @@ table {
   overflow: hidden;
   background-color: var(--suicune-purple);
 }
-#informationDisplayContainer .info-stats .stat-bar {
+#informationDisplayContainer .info-stats .info-stats-bars .stat-bar {
   transition-property: width;
   transition-duration: 1.5s;
   background-color: var(--suicune-purple-secondary);
@@ -198,12 +216,19 @@ table {
   justify-content: center;
   align-items: center;
 }
-#informationDisplayContainer .info-stats .stat-bar .stat-bar-value {
+#informationDisplayContainer .info-stats .info-stats-bars .stat-bar .stat-bar-value {
   font-size: 80%;
   font-weight: 700;
 }
-#informationDisplayContainer .info-description {
-  grid-area: description;
+#informationDisplayContainer .info-stats .info-stats-labels {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  flex-basis: 0;
+  flex-grow: 1;
+  text-align: right;
+  font-size: 30px;
+  font-weight: 500;
 }
 
 .infoDisplay-hidden {
@@ -282,7 +307,7 @@ body {
 .pokedex-container {
   position: relative;
   display: grid;
-  grid-template-columns: repeat(4, 0.3fr);
+  grid-template-columns: repeat(4, 1fr);
   grid-template-rows: auto;
   row-gap: 1rem;
   border-radius: 10px;

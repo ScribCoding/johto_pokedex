@@ -7,7 +7,7 @@ const infoStats = document.getElementById("info-stats")
 let infoStatsWidth = infoStats.offsetWidth
 
   setTimeout(() => {
-    setValue(statValue/infoStatsWidth*200)
+    setValue(statValue/infoStatsWidth*250)
   }, 100);
 
 
